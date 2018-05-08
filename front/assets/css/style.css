@@ -1,0 +1,55 @@
+body {
+    background-color: #fff;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.h-100vh {
+    height: 100vh;
+}
+
+main {
+    /* position: relative;
+ top: -3em; */
+}
+
+.error {
+    font-size: 14px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-danger-light {
+    color: #ffb6bd;
+}
+
+.fnt-40 {
+    font-size: 40px;
+}
+
+.bg-sec-pri {
+    background: #fff;
+    border: 1px solid b5d9ff;
+}
+
+nav {
+    background: #ffffff;
+    border-bottom: 4px solid #82e498;
+}
+
+nav a {
+    color: #828282;
+}
+
+nav a:hover {
+    color: #46dc69;
+}
+
+.sec-pri {
+    border: 1px solid #82e498;
+    border-radius: 5px;
+}
