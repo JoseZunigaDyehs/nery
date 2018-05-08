@@ -1,5 +1,6 @@
 body {
     background-color: #fff;
+    color: #484848;
 }
 
 .w-20 {
@@ -52,4 +53,10 @@ nav a:hover {
 .sec-pri {
     border: 1px solid #82e498;
     border-radius: 5px;
+}
+
+.table .thead-dark th {
+    color: #fff;
+    background-color: #259a3f;
+    border-color: #185d27;
 }
