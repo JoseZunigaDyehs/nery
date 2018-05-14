@@ -82,7 +82,6 @@ tfoot {
 
 .content-editable:focus {
     outline: none;
-    padding: 0 5px;
     text-decoration: underline;
 }
 

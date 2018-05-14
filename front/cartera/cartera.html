@@ -63,9 +63,12 @@
         </div>
 
         <div class="row mb-5 d-none" id="cheques">
-            <h6>Cliente: NombreCliente ApellidoCliente</h6>
+            <div class="d-flex justify-content-between col-md-12">
+                <h6>Cheques</h6>
+                <h6>Pablo Alejandro Pérez Dararola</h6>
+            </div>
             <div class="sec-pri p-3 w-100">
-                <table class="table" id="tablaCartera">
+                <table class="table" id="tablaClientes">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
@@ -80,19 +83,19 @@
                         <tr>
                             <th scope="row">1</th>
                             <td>
-                                <p>251325</p>
+                                <p class="numero">251325</p>
                             </td>
                             <td>
-                                <p>22-05-2018</p>
+                                <p class="fecha">22-05-2018</p>
                             </td>
                             <td>
-                                <p>No pago algo</p>
+                                <p class="motivo">No pago algo</p>
                             </td>
                             <td>
-                                <p>1.232.152</p>
+                                <p class="deuda">1.232.152</p>
                             </td>
                             <td class="d-flex justify-content-center">
-                                <div class="custom-control custom-checkbox" onchange="generarCalculos(this)">
+                                <div class="custom-control custom-checkbox seleccionado" onchange="generarCalculos(this)">
                                     <input type="checkbox" class="custom-control-input" id="1" />
                                     <label class="custom-control-label" for="1"></label>
                                 </div>
@@ -101,21 +104,21 @@
                         <tr>
                             <th scope="row">2</th>
                             <td>
-                                <p>251325</p>
+                                <p class="numero">454545</p>
                             </td>
                             <td>
-                                <p>22-05-2018</p>
+                                <p class="fecha">29-03-2018</p>
                             </td>
                             <td>
-                                <p>No pago algo</p>
+                                <p class="motivo">No quiere nada</p>
                             </td>
                             <td>
-                                <p>1.232.152</p>
+                                <p class="deuda">155.652</p>
                             </td>
                             <td class="d-flex justify-content-center">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="2" onchange="generarCalculos(this)" />
-                                    <label class=" custom-control-label " for="2"></label>
+                                <div class="custom-control custom-checkbox seleccionado" onchange="generarCalculos(this)">
+                                    <input type="checkbox" class="custom-control-input" id="2" />
+                                    <label class="custom-control-label" for="2"></label>
                                 </div>
                             </td>
                         </tr>
@@ -127,8 +130,8 @@
 
         <div class="row mb-5 align-items-start d-none " id="deuda">
             <h6 class="col-md-12 ">Deuda</h6>
-            <div class=" col-md-8 ">
-                <table class="table " id="tablaCartera ">
+            <div class=" col-md-9 ">
+                <table class="table " id="tablaDeuda">
                     <thead class="thead-dark ">
                         <tr>
                             <th scope="col ">#</th>
@@ -201,18 +204,18 @@
                     </tfoot>
                 </table>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-3 ">
                 <div class="sec-pri p-3 mb-4 b-shadow">
                     <div class="d-flex ">
-                        <h5>Total $</h5>
+                        <h5>Total: $</h5>
                         <h5>545.546</h5>
                     </div>
                     <div class="d-flex ">
-                        <h5 class="mr-2">Cheques a pagar</h5>
+                        <h5 class="mr-2">Cheques a pagar: </h5>
                         <h5 contenteditable="true" class="content-editable">2</h5>
                     </div>
                     <div class="d-flex ">
-                        <h5>Por Cheque $</h5>
+                        <h5>Por Cheque: $</h5>
                         <h5>253.546</h5>
                     </div>
                 </div>
