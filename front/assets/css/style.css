@@ -11,11 +11,6 @@ body {
     height: 100vh;
 }
 
-main {
-    /* position: relative;
- top: -3em; */
-}
-
 .error {
     font-size: 14px;
 }
