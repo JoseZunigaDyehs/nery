@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cartera - Finanzas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <a class="navbar-brand" href="#">Finanzas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse justify-content-between text-white" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../perfil/perfil.html">Perfil
+            <span class="sr-only">(current)</span>
+          </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../clientes/clientes.html">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../login/login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cartera.html">Cartera</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../historial/historial.html">Historial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../estadisticas/estadisticas.html">Estadisticas</a>
+                </li>
+
+            </ul>
+            <a class="nav-link" href="#">Logout</a>
+        </div>
+    </nav>
+    <header class="container my-5">
+        <div class="row justify-content-center">
+            <h1>Cartera de clientes</h1>
+        </div>
+    </header>
+    <main class="container">
+        <div class="row sec-pri py-5 mb-5">
+            <div class="form-group mb-0 col-md-12 d-flex justify-content-center align-items-center">
+                <label class="mb-0 mr-2">Buscar cliente por Rut:</label>
+                <label class="mb-0 mr-2">
+          <input id="rut" type="text" class="form-control" placeholder="Rut cliente" onkeyup="checkRut(this)">
+          <label class="error text-danger d-none position-absolute"></label>
+                </label>
+                <button class="btn btn-secondary" onclick="buscarPorRut(this)">Buscar</button>
+            </div>
+
+        </div>
+
+        <div class="row mb-5 d-none" id="cheques">
+            <h6>Cliente: NombreCliente ApellidoCliente</h6>
+            <div class="sec-pri p-3 w-100">
+                <table class="table" id="tablaCartera">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">N° Doc</th>
+                            <th scope="col">Fecha protesto</th>
+                            <th scope="col">Motivo</th>
+                            <th scope="col">Deuda</th>
+                            <th scope="col">Selección</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>
+                                <p>251325</p>
+                            </td>
+                            <td>
+                                <p>22-05-2018</p>
+                            </td>
+                            <td>
+                                <p>No pago algo</p>
+                            </td>
+                            <td>
+                                <p>1.232.152</p>
+                            </td>
+                            <td class="d-flex justify-content-center">
+                                <div class="custom-control custom-checkbox" onchange="generarCalculos(this)">
+                                    <input type="checkbox" class="custom-control-input" id="1" />
+                                    <label class="custom-control-label" for="1"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>
+                                <p>251325</p>
+                            </td>
+                            <td>
+                                <p>22-05-2018</p>
+                            </td>
+                            <td>
+                                <p>No pago algo</p>
+                            </td>
+                            <td>
+                                <p>1.232.152</p>
+                            </td>
+                            <td class="d-flex justify-content-center">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="2" onchange="generarCalculos(this)" />
+                                    <label class=" custom-control-label " for="2"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row mb-5 align-items-start d-none " id="deuda">
+            <h6 class="col-md-12 ">Deuda</h6>
+            <div class=" col-md-8 ">
+                <table class="table " id="tablaCartera ">
+                    <thead class="thead-dark ">
+                        <tr>
+                            <th scope="col ">#</th>
+                            <th scope="col ">Cheque</th>
+                            <th scope="col ">Capital</th>
+                            <th scope="col ">Interés</th>
+                            <th scope="col ">Honorario</th>
+                            <th scope="col ">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row ">1</th>
+                            <td>
+                                <p>N° Doc: 321512</p>
+                                <p>Fecha protesto: 25/05/2017</p>
+                                <p>Motivo: No pago algo</p>
+                            </td>
+                            <td>
+                                <p>213.513</p>
+                            </td>
+                            <td>
+                                <p>35.000</p>
+                            </td>
+                            <td>
+                                <p>100.000</p>
+                            </td>
+                            <td>
+                                <p>348.513</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row ">2</th>
+                            <td>
+                                <p>N° Doc: 321512</p>
+                                <p>Fecha protesto: 25/05/2017</p>
+                                <p>Motivo: No pago algo</p>
+                            </td>
+                            <td>
+                                <p>213.513</p>
+                            </td>
+                            <td>
+                                <p>35.000</p>
+                            </td>
+                            <td>
+                                <p>100.000</p>
+                            </td>
+                            <td>
+                                <p>348.513</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <p>213.513</p>
+                            </td>
+                            <td>
+                                <p>35.000</p>
+                            </td>
+                            <td>
+                                <p>100.000</p>
+                            </td>
+                            <td>
+                                <p>348.513</p>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="col-md-4 ">
+                <div class="sec-pri p-3 mb-4 b-shadow">
+                    <div class="d-flex ">
+                        <h5>Total $</h5>
+                        <h5>545.546</h5>
+                    </div>
+                    <div class="d-flex ">
+                        <h5 class="mr-2">Cheques a pagar</h5>
+                        <h5 contenteditable="true" class="content-editable">2</h5>
+                    </div>
+                    <div class="d-flex ">
+                        <h5>Por Cheque $</h5>
+                        <h5>253.546</h5>
+                    </div>
+                </div>
+                <div class="w-100 d-flex justify-content-end ">
+                    <button class="btn btn-primary " onclick="generarCalculos() ">Finalizar</button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+    <script src="../assets/js/general.js "></script>
+    <script src="../assets/js/cartera.js "></script>
+</body>
+
+</html>

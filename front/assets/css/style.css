@@ -55,8 +55,44 @@ nav a:hover {
     border-radius: 5px;
 }
 
+.btn-primary {
+    background-color: #259a3f;
+    border-color: #259a3f;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0f521e;
+    border-color: #0f521e;
+}
+
 .table .thead-dark th {
     color: #fff;
     background-color: #259a3f;
     border-color: #185d27;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+.table td p {
+    margin-bottom: 0;
+}
+
+tfoot {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.content-editable:focus {
+    outline: none;
+    padding: 0 5px;
+    text-decoration: underline;
+}
+
+.b-shadow {
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(184, 184, 184, 1);
+    -moz-box-shadow: 0px 5px 20px 0px rgba(184, 184, 184, 1);
+    box-shadow: 0px 5px 20px 0px rgba(184, 184, 184, 1);
 }
