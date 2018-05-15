@@ -17,7 +17,7 @@ function validarTodo(){
    valido = false;  
  }
  if(!valEmail(email)){
-   valido = false;  
+   valido = false;
  }
  if(!valTexto(telefono, 5, 10)){
    valido = false;  

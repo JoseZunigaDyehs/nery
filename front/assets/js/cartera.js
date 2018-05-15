@@ -35,23 +35,35 @@ function generarCalculos(e) {
       str += '<td><p>N° Doc: ' + cheque.cheque.numeroDoc + '</p>';
       str += '<p>Fecha protesto: ' + cheque.cheque.fecha + '</p>';
       str += '<p>Motivo: ' + cheque.cheque.motivo + '</p></td>';
-      str += '<td><p>' + cheque.deuda + '</p></td>';
+      str += '<td><p class="deuda">' + cheque.deuda + '</p></td>';
       str += '<td><p>35.000</p></td>';
       str += '<td><p>100.000</p></td>';
       str += '<td><p>348.513</p></td></tr>';
     });
     $('#deuda').find('#tablaDeuda tbody').html(str);
     $('#deuda').removeClass('d-none');
+    calculosTablaDeuda(cheques);
   } else {
     $('#deuda').addClass('d-none');
   }
-
   window.scrollTo(0, document.getElementById('deuda').offsetTop);
 
 }
 
-function quitarFormatoPesos(input) {
-  var texto = input.type === "input" ? input.value : input.text;
-  texto.replace('.', '');
-  input.type === "input" ? input.value = texto : input.text = texto;
+function calculosTablaDeuda(cheques){
+  debugger;
+  var valores = {};
+  var sumaDeuda = 0;
+  $.each(cheques,function(i,cheque){
+    var deuda = quitarFormatoPesos(cheque.deuda);
+    sumaDeuda += deuda;
+  });
+  var tablaFoot = $('#deuda').find('#tablaDeuda tfoot tr');
+  sumaDeuda = formatNumber(sumaDeuda);
+  tablaFoot.find('.deuda').text(sumaDeuda);
+}
+
+function quitarFormatoPesos(valor) {
+  valor = valor.replace(/\./g,'');
+  return parseInt(valor);
 }
