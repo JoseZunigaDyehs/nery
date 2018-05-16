@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "views/view.php";
-require_once "models/control.class.php";
+require_once "model/control.class.php";
 
 class MainController {
 
@@ -12,10 +12,10 @@ class MainController {
     public function execute() {
 		
 			
-		if(isset($_SESSION["estado"])) //viene algo en la session con el nombre estado?
-		{
-			//echo "ESTOY AUTENTICADO";
-			//echo $_GET['id'];
+		// if(isset($_SESSION["estado"])) //viene algo en la session con el nombre estado?
+		// {
+		// 	//echo "ESTOY AUTENTICADO";
+		// 	//echo $_GET['id'];
 			if(isset($_GET['id'])) // La Variable id que llega por GET está definida";
 			{
 			$accion = $_GET['id']; //Asignamos el valor de ID que viene por post a la variable $accion
@@ -39,42 +39,46 @@ class MainController {
 					$this->_view->render("frm_agregaAlumno");	
 					break;
 				case 6:	
-					$this->_agregarAlumno();;	
-					break;
+					$this->_agregarAlumno();	
+          break;
+        case 11:
+          $this->_cartera();
+          break;
 				case 99:
 					$this->_cerrarSession();	
 					break;	
 				}
 			}			
-		}
-		else
-		{
-			if(isset($_GET['id']))//viene algo en la varible id del GET?
-			{
-					if ($_GET['id'] == 0) // esa variable es = 0?
-					{
-						if(isset($_POST['login'])) //viene la variable login en el POST?
-						{
-							$this->_validarLogin(); // solo si viene el dato por POST validaré al usuario
-						}
-						else //Esto quiere decir que no se ha logueado por lo tanto lo envío a loguearse
-						{
-							$this->_view->render("frm_login");
-						}
-					}
-					else // como no viene 0, en el id del GET envío a loguear
-					{
-						$this->_view->render("frm_login"); 
-					}
-			}
-			else // como no viene nada en el id del GET envío a loguear
-			{
-				$this->_view->render("frm_login");
-			}
+		// }
+		// else
+		// {
+		// 	if(isset($_GET['id']))//viene algo en la varible id del GET?
+		// 	{
+		// 			if ($_GET['id'] == 0) // esa variable es = 0?
+		// 			{
+		// 				if(isset($_POST['login'])) //viene la variable login en el POST?
+		// 				{
+		// 					$this->_validarLogin(); // solo si viene el dato por POST validaré al usuario
+		// 				}
+		// 				else //Esto quiere decir que no se ha logueado por lo tanto lo envío a loguearse
+		// 				{
+		// 					$this->_view->render("frm_login");
+		// 				}
+		// 			}
+		// 			else // como no viene 0, en el id del GET envío a loguear
+		// 			{
+		// 				$this->_view->render("frm_login"); 
+		// 			}
+		// 	}
+		// 	else // como no viene nada en el id del GET envío a loguear
+		// 	{
+		// 		$this->_view->render("frm_login");
+		// 	}
 
-		}		
+		// }		
 
-	}
+  }
+  
 	public function _listarPersonas(){
         $control = new control();
 		$likeNombre = $_GET["like"];
@@ -121,7 +125,22 @@ class MainController {
 		header("Location: index.php");
 	}
 
-	
+
+
+
+		//***************************************************************** */
+    public function _perfil() {
+      $this->_view->render("perfil/perfil");	
+    }
+    public function _cartera() {
+      $this->_view->render("cartera/cartera");	
+    }
+    public function _clientes() {
+      $this->_view->render("clientes/clientes");	
+    }
+    public function _login() {
+      $this->_view->render("login/login");	
+    }
 	
     
     

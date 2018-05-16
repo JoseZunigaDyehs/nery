@@ -15,3 +15,5 @@ class view {
         $this->_parametros[$nombre] = $parametro;
     }
 }
+
+?>
