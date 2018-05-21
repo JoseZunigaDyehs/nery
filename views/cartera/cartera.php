@@ -26,7 +26,6 @@
                 <table class="table" id="tablaClientes">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">N° Doc</th>
                             <th scope="col">Fecha protesto</th>
                             <th scope="col">Motivo</th>
@@ -35,27 +34,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>
-                                <p class="numero">251325</p>
-                            </td>
-                            <td>
-                                <p class="fecha">22-05-2018</p>
-                            </td>
-                            <td>
-                                <p class="motivo">No pago algo</p>
-                            </td>
-                            <td>
-                                <p class="deuda">1.232.152</p>
-                            </td>
-                            <td class="d-flex justify-content-center">
-                                <div class="custom-control custom-checkbox seleccionado" onchange="generarCalculos(this)">
-                                    <input type="checkbox" class="custom-control-input" id="1" />
-                                    <label class="custom-control-label" for="1"></label>
-                                </div>
-                            </td>
-                        </tr>
+                        
                         <tr>
                             <th scope="row">2</th>
                             <td>
