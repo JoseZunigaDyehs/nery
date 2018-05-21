@@ -124,7 +124,7 @@ class MainController {
 
 	public function _agregarCliente()	{
 		 $control = new control();
-		 $rut = $_POST['rut'];
+		 $rut = $_POST['rutCliente'];
 		 $nombre =  $_POST['nombres'];
 		 $apellido =  $_POST['apellidos'];
 		 $email =  $_POST['email'];

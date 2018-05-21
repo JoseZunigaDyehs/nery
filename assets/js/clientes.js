@@ -55,7 +55,7 @@ function fn_agregaCliente(clientes) {
   $.ajax({
     url: 'index.php?id=6',
     type: 'post',
-    data: 'rut=' + cliente.rut + '&nombres=' + cliente.nombres + '&apellidos=' + cliente.apellidos + '&email=' + cliente.email + '&telefono=' + cliente.telefono,
+    data: 'rutCliente=' + cliente.rut + '&nombres=' + cliente.nombres + '&apellidos=' + cliente.apellidos + '&email=' + cliente.email + '&telefono=' + cliente.telefono,
     beforeSend: function () {
       $("#loading-div-background").css({ opacity: .9 });
       $("#loading-div-background").show();
