@@ -44,7 +44,7 @@ class control {
         $query->execute();
 		$query = null;
 		}
-	public function insertarCliente($rutCliente, $nombre, $apellido, $email, ) {
+	public function insertarCliente($rutCliente, $nombre, $apellido, $email, $telefono ) {
 
         $string = "insert into cliente values ('$rutCliente','$nombre', '$apellido', '$email', '$telefono');"; 
 //echo 	$string;	
