@@ -1,7 +1,7 @@
 <?php
 class mySqlPDO {
 
-    private $_url = "mysql:dbname=persona;host=localhost";
+    private $_url = "mysql:dbname=banco;host=localhost";
     private $_usuario = "root";
     private $_clave = "";
     private $_conexion;
