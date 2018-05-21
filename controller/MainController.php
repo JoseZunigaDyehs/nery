@@ -51,8 +51,7 @@ class MainController {
 						case 14:
 							$this->_login();
 							break;
-
-						case 14:
+						case 15:
 							$this->_estadisticas();
 							break;
 							
