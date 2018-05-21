@@ -47,12 +47,21 @@ class control {
 	}
 
 	public function modificarClientes($rutCliente, $nombre, $apellido, $email, $telefono){
-		
-		
+
 		$string = "update cliente set rutcliente = '$rutCliente', nombres = '$nombre', apellidos = '$apellido', email = '$email', telefono = '$telefono' where rutcliente='$rutCliente';";
 		$query = $this->_getConnection()->prepare($string);
 		$query->execute();
 		$query = null;
+	}
+
+	public function listarCheques($rutCliente){
+		$string = "select * from cheques where rutcliente = $rutCliente;";
+        $query = $this->_getConnection()->prepare($string);
+        $query->execute();
+		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		$query = null;
+		return $res;
+
 	}
 	/** FIN CLIENTES*/
 

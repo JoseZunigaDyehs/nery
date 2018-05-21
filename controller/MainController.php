@@ -58,6 +58,9 @@ class MainController {
 						case 17:
 							$this->_eliminarCliente();
 							break;
+						case 18:
+							$this->_eliminarCliente();
+							break;
 						case 19:
 						    $this->_modificarPerfil();   
 						    break;
@@ -192,7 +195,13 @@ class MainController {
 		$this->_view->render("estadisticas/estadistica");	
 	}
 
-	
+	/**CARTERA */
+	public function _listarCheques(){
+		$control = new control();
+		$rut = $_POST['rutCliente'];
+		$respuesta = $control->_listarCheques($rut);
+
+	}
     
     
 }
