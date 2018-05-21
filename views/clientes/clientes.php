@@ -1,4 +1,6 @@
-
+<?php
+    $clientes = $this->getParam("clientes");
+?>   
     <header class="container my-5">
         <div class="row justify-content-center">
             <h1>Gestión de clientes</h1>
@@ -47,7 +49,6 @@
             <table class="table" id="tablaClientes">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Rut</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
@@ -57,31 +58,33 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                <?php 
+                    foreach($clientes as $row){?>
                     <tr>
-                        <th scope="row">1</th>
                         <td>
-                            <p>55555555-5</p>
-                            <input type="text" value="55555555-5" class="rut form-control editar d-none" onkeyup="checkRut(this)">
+                            <p><?php echo $row["rutcliente"]?></p>
+                            <input type="text" value="<?php echo $row["rutcliente"]?>" class="rut form-control editar d-none" onkeyup="checkRut(this)">
                             <label class="error text-danger d-none "></label>
                         </td>
                         <td>
-                            <p>Lorem</p>
-                            <input type="text" value="Lorem" class="nombres form-control editar d-none" onkeyup="valTexto(this,4,50)">
+                            <p><?php echo $row["nombres"]?></p>
+                            <input type="text" value="<?php echo $row["nombres"]?>" class="nombres form-control editar d-none" onkeyup="valTexto(this,4,50)">
                             <label class="error text-danger d-none "></label>
                         </td>
                         <td>
-                            <p>Ipsum</p>
-                            <input type="text" value="Ipsum" class="apellidos form-control editar d-none" onkeyup="valTexto(this,4,50)">
+                            <p><?php echo $row["apellidos"]?></p>
+                            <input type="text" value="<?php echo $row["apellidos"]?>" class="apellidos form-control editar d-none" onkeyup="valTexto(this,4,50)">
                             <label class="error text-danger d-none "></label>
                         </td>
                         <td>
-                            <input type="text" value="lorem@ipsum.cl" class="email form-control editar d-none" onkeyup="valEmail(this)">
+                            <input type="text" value="<?php echo $row["email"]?>" class="email form-control editar d-none" onkeyup="valEmail(this)">
                             <label class="error text-danger d-none "></label>
-                            <p>lorem@ipsum.cl</p>
+                            <p><?php echo $row["email"]?></p>
                         </td>
                         <td>
-                            <p>+569 5456 5455</p>
-                            <input type="text" value="+569 5456 5455" class="telefono form-control editar d-none" onkeyup="valNumber(this,9,12)">
+                            <p><?php echo $row["telefono"]?></p>
+                            <input type="text" value="<?php echo $row["telefono"]?>" class="telefono form-control editar d-none" onkeyup="valNumber(this,9,12)">
                             <label class="error text-danger d-none "></label>
                         </td>
                         <td class="d-flex">
@@ -99,6 +102,10 @@
                             </a>
                         </td>
                     </tr>
+                <?php 
+
+                    } 
+                ?>
                 </tbody>
             </table>
         </div>

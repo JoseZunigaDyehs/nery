@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 function validarTodo() {
   var rut = document.getElementById('rut');
   var nombres = $('#nombres');
@@ -45,13 +37,10 @@ function validarTodo() {
 }
 
 function llenarTabla(cliente) {
-  debugger;
   fn_agregaCliente(cliente);
 }
 
-
 function fn_agregaCliente(clientes) {
-  debugger;
   $.ajax({
     url: 'index.php?id=6',
     type: 'post',
@@ -105,4 +94,8 @@ function fn_agregaCliente(clientes) {
 
     }
   });
+}
+
+function fn_eliminarCliente(){
+  
 }

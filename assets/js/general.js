@@ -261,7 +261,6 @@ function agregar() {
 
 //Muestra tabla si tiene mas de una fila, se le pasa la tabla, y un valor si es producto
 function mostrarTabla(tabla, producto) {
- debugger
  var filas = tabla.find('tbody tr');
  if (filas.length > 0) {//Si tiene filas
    tabla.removeClass('d-none');
@@ -291,7 +290,6 @@ function mostrarTabla(tabla, producto) {
 }
 
 function formatNumber(num) {
-  debugger;
   if (!num || num == 'NaN') return '-';
   if (num == 'Infinity') return '&#x221e;';
   num = num.toString().replace(/\$|\,/g, '');
@@ -307,30 +305,6 @@ function formatNumber(num) {
       num = num.substring(0, num.length - (4 * i + 3)) + '.' + num.substring(num.length - (4 * i + 3));
   return (((sign) ? '' : '-') + num);
 }
-
-// function llenarListado() {
-//   debugger
-//   var orgComprador = [];
-//   $.ajax({
-//     type: 'GET',
-//     url: 'http://api.mercadopublico.cl/servicios/v1/Publico/Empresas/BuscarComprador?ticket=F8537A18-6766-4DEF-9E59-426B4FEE2844',
-//     cache: false,
-//     contentType: "application/json; charset=utf-8",
-//     async: true,
-//     success: function (data) {
-//       var listaEmpresas = data.listaEmpresas;
-//       $.each(listaEmpresas,function(i,empresa){
-//         var nombre = empresa.nombre;
-//         orgComprador.push(nombre);
-//       });
-//       console.log(orgComprador);
-//     },
-//     error: function (ex) {
-//       alert('askjdhaskjdh');
-//     }
-//   });
-// }
-
 
 //DOCUMENT READY
 $('document').ready(function () {

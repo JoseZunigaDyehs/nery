@@ -28,19 +28,17 @@ class control {
 		$query = null;
 	}
 
-	public function listarClientes($likeNombre) {
+	public function listarClientes() {
 
-        $string = "select * from persona where nombre like '%$likeNombre%'"; 		
+        $string = "select * from cliente";
         $query = $this->_getConnection()->prepare($string);
-        //$query->bindParam(1, $login, PDO::PARAM_STR);
         $query->execute();
-		//$res = $query->fetchColumn();
 		$res = $query->fetchAll(PDO::FETCH_ASSOC);
 		$query = null;
 		return $res;
-
 	}
-	public function aliminarCliente($idPersona) {
+
+	public function eliminarCliente($idPersona) {
 
         $string = "delete from persona where id =$idPersona;"; 		
         $query = $this->_getConnection()->prepare($string);

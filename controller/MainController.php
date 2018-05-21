@@ -107,12 +107,6 @@ class MainController {
 		 $telefono = $_POST['telefono'];
 		 $respuesta = $control->insertarCliente($rut, $nombre, $apellido, $email, $telefono);
 	}
-
-	public function _listarClientes(){
-		$control = new control();
-		$this->_view->setParam("datos", $control->listarClientes());	
-		$this->_view->render("frm_listado");  
-	}
 	
 	/** FIN CLIENTES */
 
@@ -146,6 +140,8 @@ class MainController {
 		$this->_view->render("cartera/cartera");	
 	}
 	public function _clientes() {
+		$control = new control();
+		$this->_view->setParam("clientes", $control->listarClientes());
 		$this->_view->render("clientes/clientes");	
 	}
 	public function _login() {
