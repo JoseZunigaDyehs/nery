@@ -129,7 +129,7 @@ class MainController {
 		 $apellido =  $_POST['apellidos'];
 		 $email =  $_POST['email'];
 		 $telefono = $_POST['telefono'];
-		 $respuesta = $control->insertarcliente($rut, $nombre, $apellido, $email, $telefono);
+		 $respuesta = $control->insertarCliente($rut, $nombre, $apellido, $email, $telefono);
  
 	}
 

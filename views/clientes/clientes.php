@@ -11,36 +11,36 @@
             </div>
             <div class="form-group col-md-3">
                 <label class="w-100">Rut:
-     <input id="txtRut" type="text" class="form-control" placeholder="Rut cliente" onkeyup="checkRut(this)">
+     <input id="rut" type="text" class="form-control" placeholder="Rut cliente" onkeyup="checkRut(this)">
      <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
             <div class="form-group col-md-3">
                 <label class="w-100">Nombres:
-     <input id="txtNombres" type="text" class="form-control" placeholder="Nombre cliente" onkeyup="valTexto(this,4,50)">
+     <input id="nombres" type="text" class="form-control" placeholder="Nombre cliente" onkeyup="valTexto(this,4,50)">
      <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
             <div class="form-group col-md-3">
                 <label class="w-100">Apellidos:
-     <input id="txtApellidos" type="text" class="form-control" placeholder="Apellido cliente" onkeyup="valTexto(this,4,50)">
+     <input id="apellidos" type="text" class="form-control" placeholder="Apellido cliente" onkeyup="valTexto(this,4,50)">
      <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
             <div class="form-group col-md-3">
                 <label class="w-100">Email:
-     <input id="txtEmail" type="email" class="form-control" placeholder="Email cliente" onkeyup="valEmail(this)">
+     <input id="email" type="email" class="form-control" placeholder="Email cliente" onkeyup="valEmail(this)">
      <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
             <div class="form-group col-md-3">
                 <label class="w-100">Telefono:
-     <input id="txtTelefono" type="text" class="form-control" placeholder="Telefono cliente" onkeyup="valNumber(this,9,12)">
+     <input id="telefono" type="text" class="form-control" placeholder="Telefono cliente" onkeyup="valNumber(this,9,12)">
      <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
             <div class="col-md-9 text-right">
-                <button class="btn btn-secondary mt-4" id='btnAgregar'>Agregar</button>
+                <button class="btn btn-secondary mt-4" onclick="agregar()">Agregar</button>
             </div>
         </div>
         <div class="row">
