@@ -16,13 +16,13 @@
             <form class="col-md-6">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Correo electrónico</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingrese correo electrónico">
+                    <input type="email" class="form-control" id="txtLogin" placeholder="Ingrese correo electrónico">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control" id="txtPass" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <button type="submit" class="btn btn-primary" id="btnLogin" >Ingresar</button>
             </form>
         </div>
     </main>
