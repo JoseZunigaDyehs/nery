@@ -54,6 +54,16 @@ class control {
 		$query->execute();
 		$query = null;
 	}
+
+	public function listarCheques($rutCliente){
+		$string = "select * from cheques where rutcliente = $rutCliente;";
+        $query = $this->_getConnection()->prepare($string);
+        $query->execute();
+		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		$query = null;
+		return $res;
+
+	}
 	/** FIN CLIENTES*/
 
 	/**PERFIL */
