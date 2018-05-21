@@ -54,7 +54,7 @@ class control {
 		}
 	public function validarLogin($login, $password) {
 
-        $string = "select count(*) from usuario where user='".$login."' and password='".$password."';"; 		
+        $string = "select count(*) from usuario where nombreusuario='".$login."' and password='".$password."';"; 		
 		//echo $string;
         $query = $this->_getConnection()->prepare($string);
         $query->execute();

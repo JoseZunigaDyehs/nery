@@ -69,17 +69,17 @@ class MainController {
 							}
 							else //Esto quiere decir que no se ha logueado por lo tanto lo envío a loguearse
 							{
-								$this->_view->render("frm_login");
+								$this->_view->render("login/login");
 							}
 						}
 						else // como no viene 0, en el id del GET envío a loguear
 						{
-							$this->_view->render("frm_login"); 
+							$this->_view->render("login/login"); 
 						}
 				}
 				else // como no viene nada en el id del GET envío a loguear
 				{
-					$this->_view->render("frm_login");
+					$this->_view->render("login/login");
 				}
 
 			}		
