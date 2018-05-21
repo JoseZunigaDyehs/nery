@@ -15,16 +15,31 @@
             foreach($cliente as $row){?>
             <div class="form-group col-md-3">
                 <label class="w-100">Email:
-                    <input id="email" type="text" class="form-control" placeholder="Email cliente" value="<?php echo $row["nombre"] ?>">
+                    <input id="email" type="text" class="form-control" placeholder="Email cliente" value="<?php echo $row["nombreusuario"] ?>" >
                     <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
+            
             <div class="form-group col-md-3">
-                <label class="w-100">Password:
-                <input id="pass" type="password" class="form-control" placeholder="Oassword" onkeyup="valTexto(this,4,12)">
+                <label class="w-100">Nombre:
+                <input id="nombres" type="text" class="form-control" placeholder="Nombre cliente" onkeyup="valTexto(this,4,50)"  value="<?php echo $row["nombre"] ?>">
                 <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
+            <div class="form-group col-md-3">
+                <label class="w-100">Apellido:
+                <input id="apellidos" type="text" class="form-control" placeholder="Apellido cliente" onkeyup="valTexto(this,4,50)"  value="<?php echo $row["apellido"] ?>">
+                <label class="error text-danger d-none position-absolute"></label>
+                </label>
+            </div>
+            
+            <div class="form-group col-md-3">
+                <label class="w-100">Contreña:
+                <input id="apellidos" type="password" class="form-control" placeholder="password" onkeyup="valTexto(this,4,50)"  value="<?php echo $row["password"] ?>">
+                <label class="error text-danger d-none position-absolute"></label>
+                </label>
+            </div>
+
             <?php 
                 } 
                 ?>

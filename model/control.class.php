@@ -47,8 +47,7 @@ class control {
 	}
 
 	public function modificarClientes($rutCliente, $nombre, $apellido, $email, $telefono){
-		
-		
+
 		$string = "update cliente set rutcliente = '$rutCliente', nombres = '$nombre', apellidos = '$apellido', email = '$email', telefono = '$telefono' where rutcliente='$rutCliente';";
 		$query = $this->_getConnection()->prepare($string);
 		$query->execute();
@@ -67,7 +66,7 @@ class control {
 	/** FIN CLIENTES*/
 
 	/**PERFIL */
-	public function mostrarCliente($email){
+	public function mostrarPerfil($email){
 		$string = "select * from usuario where nombreusuario='$email';"; 
         $query = $this->_getConnection()->prepare($string);
         $query->execute();
@@ -75,6 +74,8 @@ class control {
 		$query = null;
 		return $res;
 	}
+
+	
 	/**FIN PERFIL */
 		
 }
