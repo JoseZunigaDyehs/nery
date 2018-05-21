@@ -182,15 +182,9 @@ function checkRut(rut) {
 }
 
 //Elimina la fila
-function eliminar(e,producto) {
+function eliminar(e) {
  var tabla = $(e).closest('table');
- $(e).closest('tr').remove();
- if(producto!==undefined){
-   mostrarTabla(tabla,producto);//Muestra tabla si tiene filas
- }else{
-   mostrarTabla(tabla);//Muestra tabla si tiene filas
- }
- refreshFunction();
+ fn_eliminarCliente(e,tabla);
 }
 
 // Recorre todos los input con clase editar y los muestra

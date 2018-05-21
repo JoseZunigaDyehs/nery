@@ -54,7 +54,6 @@ function fn_agregaCliente(clientes) {
       var tabla = $('#tablaClientes');
       var largoTabla = tabla.find('tbody tr').length;
       var fila = '<tr>';
-      fila += '<th scope="row">'+(largoTabla+1)+'</th>';
       fila += '<td>';
       fila += '<p>'+cliente.rut+'</p>';
       fila += '<input type="text" value="'+cliente.rut+'" class="rut form-control editar d-none" onkeyup="valTexto(this,10,20)">';
@@ -96,6 +95,18 @@ function fn_agregaCliente(clientes) {
   });
 }
 
-function fn_eliminarCliente(){
-  
+function fn_eliminarCliente(e,tabla){
+  var rut = $(e).closest('tr').find('.rut').val();
+  $.ajax({
+    url: 'index.php?id=17',
+    type: 'post',
+    async: false,
+    data: 'rutCliente=' + rut,
+    success: function (data) {
+      $(e).closest('tr').remove();
+      mostrarTabla(tabla);//Muestra tabla si tiene filas
+      refreshFunction();
+      alert('Se ha eliminado correctamente al cliente');
+    }
+  });
 }

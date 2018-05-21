@@ -38,9 +38,9 @@ class control {
 		return $res;
 	}
 
-	public function eliminarCliente($idPersona) {
+	public function eliminarCliente($rutCliente) {
 
-        $string = "delete from persona where id =$idPersona;"; 		
+        $string = "delete from cliente where rutcliente=$rutCliente;"; 		
         $query = $this->_getConnection()->prepare($string);
         $query->execute();
 		$query = null;
