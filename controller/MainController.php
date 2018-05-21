@@ -14,8 +14,6 @@ class MainController {
 			
 			if(isset($_SESSION["estado"])) //viene algo en la session con el nombre estado?
 			{
-			// 	//echo "ESTOY AUTENTICADO";
-			// 	//echo $_GET['id'];
 				if(isset($_GET['id'])) {// La Variable id que llega por GET está definida";
 					$accion = $_GET['id']; //Asignamos el valor de ID que viene por post a la variable $accion
 					//$url = $_SERVER['PHP_SELF'];
@@ -54,12 +52,11 @@ class MainController {
 						case 15:
 							$this->_estadisticas();
 							break;
-							
 						case 99:
 							$this->_cerrarSession();	
 							break;	
 					}
-				}			
+				}
 			}
 			else
 			{
@@ -85,42 +82,21 @@ class MainController {
 				{
 					$this->_view->render("login/login");
 				}
-
-			}		
-
+			}
   }
   
 	public function _listarPersonas(){
-        $control = new control();
+    $control = new control();
 		$likeNombre = $_GET["like"];
 		$this->_view->setParam("datos", $control->listarPersonas($likeNombre));	
-        $this->_view->render("frm_listado");  
-				//var_export($respuesta);
-		
-		}
-		
-	
-		public function _eliminarPersona($idPersona)	{
-		 $control = new control();
-		 $control->eliminarPersona($idPersona);
+    $this->_view->render("frm_listado");
+	}
+	public function _eliminarPersona($idPersona)	{
+		$control = new control();
+		$control->eliminarPersona($idPersona);
 	}
 
-	public function _validarLogin()	{
-		 $control = new control();
-		 $log =  $_POST['login'];
-		 $pass =  $_POST['pass'];
-		 $respuesta = $control->validarLogin($log, $pass);
-		 if ($respuesta == 1)
-		 {
-			// Crea session
-			//session_start();
-			// Storing session data
-			$_SESSION["usuario"] = $log;
-			$_SESSION["estado"] = "AUT";
-			echo json_encode($respuesta);
-		 }
-		 
-	}
+	/** CLIENTES */
 
 	public function _agregarCliente()	{
 		 $control = new control();
@@ -130,30 +106,50 @@ class MainController {
 		 $email =  $_POST['email'];
 		 $telefono = $_POST['telefono'];
 		 $respuesta = $control->insertarCliente($rut, $nombre, $apellido, $email, $telefono);
- 
 	}
 
+	public function _listarClientes(){
+		$control = new control();
+		$this->_view->setParam("datos", $control->listarClientes());	
+		$this->_view->render("frm_listado");  
+	}
+	
+	/** FIN CLIENTES */
+
+	/** LOGIN */
+	public function _validarLogin()	{
+		$control = new control();
+		$log =  $_POST['login'];
+		$pass =  $_POST['pass'];
+		$respuesta = $control->validarLogin($log, $pass);
+		if ($respuesta == 1)
+		{
+		 $_SESSION["usuario"] = $log;
+		 $_SESSION["estado"] = "AUT";
+		 echo json_encode($respuesta);
+		}	
+	 }
+	 
 	public function _cerrarSession()	{
 		@session_start();
 		session_destroy();
 		header("Location: index.php");
 	}
 
+	/** FIN LOGIN */
 
-
-
-		//***************************************************************** */
-    public function _perfil() {
-      $this->_view->render("perfil/perfil");	
-    }
-    public function _cartera() {
-      $this->_view->render("cartera/cartera");	
-    }
-    public function _clientes() {
-      $this->_view->render("clientes/clientes");	
-    }
-    public function _login() {
-      $this->_view->render("login/login");	
+	//***************************************************************** */
+	public function _perfil() {
+		$this->_view->render("perfil/perfil");	
+	}
+	public function _cartera() {
+		$this->_view->render("cartera/cartera");	
+	}
+	public function _clientes() {
+		$this->_view->render("clientes/clientes");	
+	}
+	public function _login() {
+		$this->_view->render("login/login");	
 	}
 	public function _estadisticas(){
 		$this->_view->render("estadisticas/estadistica");	
