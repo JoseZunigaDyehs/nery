@@ -51,6 +51,11 @@ class MainController {
 						case 14:
 							$this->_login();
 							break;
+
+						case 14:
+							$this->_estadisticas();
+							break;
+							
 						case 99:
 							$this->_cerrarSession();	
 							break;	
@@ -148,7 +153,11 @@ class MainController {
     }
     public function _login() {
       $this->_view->render("login/login");	
-    }
+	}
+	public function _estadisticas(){
+		$this->_view->render("estadisticas/estadistica");	
+	}
+
 	
     
     
