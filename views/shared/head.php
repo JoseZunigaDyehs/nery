@@ -37,10 +37,10 @@
                     <a class="nav-link" href="?id=11">Cartera</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?id=15">Historial</a>
+                    <a class="nav-link" href="?id=16">Historial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?id=16">Estadisticas</a>
+                    <a class="nav-link" href="?id=15">Estadisticas</a>
                 </li>
 
             </ul>

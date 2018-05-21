@@ -55,6 +55,9 @@ class MainController {
 						case 15:
 							$this->_estadisticas();
 							break;
+						case 17:
+							$this->_eliminarCliente();
+							break;
 						case 99:
 							$this->_cerrarSession();	
 							break;	
@@ -110,6 +113,12 @@ class MainController {
 		 $telefono = $_POST['telefono'];
 		 $respuesta = $control->insertarCliente($rut, $nombre, $apellido, $email, $telefono);
 	}
+
+	public function _eliminarCliente()	{
+		$control = new control();
+		$rut = $_POST['rutCliente'];
+		$respuesta = $control->eliminarCliente($rut);
+ }
 	
 	/** FIN CLIENTES */
 
@@ -147,6 +156,10 @@ class MainController {
 
 	//***************************************************************** */
 	public function _perfil() {
+		// session_start();
+		$mail = $_SESSION["usuario"];
+		$control = new control();
+		$this->_view->setParam("usuario", $control->mostrarCliente($mail));
 		$this->_view->render("perfil/perfil");	
 	}
 	public function _cartera() {
