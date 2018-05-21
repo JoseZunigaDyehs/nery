@@ -43,6 +43,15 @@ class MainController {
           break;
         case 11:
           $this->_cartera();
+					break;
+				case 12:
+          $this->_perfil();
+					break;
+				case 13:
+          $this->_clientes();
+					break;
+				case 14:
+          $this->_login();
           break;
 				case 99:
 					$this->_cerrarSession();	

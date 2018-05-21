@@ -22,24 +22,24 @@
         <div class="collapse navbar-collapse justify-content-between text-white" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../perfil/perfil.html">Perfil
+                    <a class="nav-link" href="?id=12">Perfil
             <span class="sr-only">(current)</span>
           </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?id=11">Clientes</a>
+                    <a class="nav-link" href="?id=13">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../login/login.html">Login</a>
+                    <a class="nav-link" href="?id=14">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cartera.html">Cartera</a>
+                    <a class="nav-link" href="?id=11">Cartera</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../historial/historial.html">Historial</a>
+                    <a class="nav-link" href="?id=15">Historial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../estadisticas/estadisticas.html">Estadisticas</a>
+                    <a class="nav-link" href="?id=16">Estadisticas</a>
                 </li>
 
             </ul>
