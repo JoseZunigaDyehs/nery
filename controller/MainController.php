@@ -134,6 +134,10 @@ class MainController {
 
 	//***************************************************************** */
 	public function _perfil() {
+		// session_start();
+		$mail = $_SESSION["usuario"];
+		$control = new control();
+		$this->_view->setParam("usuario", $control->mostrarCliente($mail));
 		$this->_view->render("perfil/perfil");	
 	}
 	public function _cartera() {

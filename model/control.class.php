@@ -46,5 +46,16 @@ class control {
 		$query = null;
 	}
 	/** FIN CLIENTES*/
+
+	/**PERFIL */
+	public function mostrarCliente($email){
+		$string = "select * from usuario where nombreusuario='$email';"; 
+        $query = $this->_getConnection()->prepare($string);
+        $query->execute();
+		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		$query = null;
+		return $res;
+	}
+	/**FIN PERFIL */
 		
 }
