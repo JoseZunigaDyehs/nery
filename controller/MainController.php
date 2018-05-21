@@ -37,6 +37,9 @@ class MainController {
 						case 6:	
 							$this->_agregarCliente();	
 							break;
+						case 8:	
+							$this->_modificarCliente();	
+							break;
 						case 11:
 							$this->_cartera();
 							break;
@@ -122,7 +125,17 @@ class MainController {
 		 $_SESSION["estado"] = "AUT";
 		 echo json_encode($respuesta);
 		}	
-	 }
+	}
+
+	public function _modificarCliente(){
+		$control = new control();
+		$rut = $_POST['rutCliente'];
+		$nombre =  $_POST['nombres'];
+		$apellido =  $_POST['apellidos'];
+		$email =  $_POST['email'];
+		$telefono = $_POST['telefono'];
+		$respuesta = $control->modificarClientes($rut, $nombre, $apellido, $email, $telefono);
+	}
 	 
 	public function _cerrarSession()	{
 		@session_start();

@@ -99,3 +99,32 @@ function fn_agregaCliente(clientes) {
 function fn_eliminarCliente(){
   
 }
+
+function fn_editarCliente(clientes,editores) {
+  
+  $.ajax({
+    url: 'index.php?id=8',
+    type: 'post',
+    data: 'rutCliente=' + clientes.rut + '&nombres=' + clientes.nombres + '&apellidos=' + clientes.apellidos + '&email=' + clientes.email + '&telefono=' + clientes.telefono,
+    beforeSend: function () {
+      $("#loading-div-background").css({ opacity: .9 });
+      $("#loading-div-background").show();
+    },
+    success: function (data) {
+      $.each(editores, function (i, editor) {
+        //Si es la ultima columna
+        if (editores.length - 1 === i) {
+          $(editor).addClass('d-none');
+          $(editor).siblings('.btnEliminar').removeClass('d-none');
+          $(editor).siblings('.btnEditar').removeClass('d-none');
+        } else {
+          $(editor).addClass('d-none');
+          var texto = $(editor).val();
+          $(editor).siblings('p').text(texto);
+          $(editor).siblings('p').removeClass('d-none');
+        }
+      });
+
+    }
+  });
+}
