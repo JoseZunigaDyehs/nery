@@ -66,7 +66,18 @@ class control {
 		return $res;
 	}
 
-	
+	public function modificarPerfil($nombre, $apellido, $nombreusuario, $password){
+		
+		
+		$string = "update usuario set nombre = '$nombre', apellido = '$apellido', nombreusuario = '$nombreusuario', password = '$password'  where nombreusuario='$nombreusuario';";
+		$query = $this->_getConnection()->prepare($string);
+		$query->execute();
+		$query = null;
+	}
+
+
+
+		
 	/**FIN PERFIL */
 		
 }
