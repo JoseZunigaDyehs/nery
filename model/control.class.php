@@ -47,8 +47,7 @@ class control {
 	}
 
 	public function modificarClientes($rutCliente, $nombre, $apellido, $email, $telefono){
-		
-		
+
 		$string = "update cliente set rutcliente = '$rutCliente', nombres = '$nombre', apellidos = '$apellido', email = '$email', telefono = '$telefono' where rutcliente='$rutCliente';";
 		$query = $this->_getConnection()->prepare($string);
 		$query->execute();
