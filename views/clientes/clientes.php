@@ -103,4 +103,4 @@
             </table>
         </div>
     </main>
-    <script src="../assets/js/clientes.js"></script>
+    <script src="../nery/assets/js/clientes.js"></script>
