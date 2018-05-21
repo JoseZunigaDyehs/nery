@@ -1,6 +1,5 @@
 <?php
     $cliente = $this->getParam("usuario");
-    echo implode(" ",$cliente);
 ?>   
     <header class="container my-5">
         <div class="row justify-content-center">
@@ -12,18 +11,23 @@
             <div class="w-100 ml-3 mb-3">
                 <h6>Edita tu perfil:</h6>
             </div>
+            <?php 
+            foreach($cliente as $row){?>
             <div class="form-group col-md-3">
                 <label class="w-100">Email:
-                    <input id="email" type="text" class="form-control" placeholder="Email cliente" value="<?php echo $cliente["nombre"] ?>">
+                    <input id="email" type="text" class="form-control" placeholder="Email cliente" value="<?php echo $row["nombre"] ?>">
                     <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
             <div class="form-group col-md-3">
                 <label class="w-100">Password:
-     <input id="pass" type="password" class="form-control" placeholder="Oassword" onkeyup="valTexto(this,4,12)">
-     <label class="error text-danger d-none position-absolute"></label>
+                <input id="pass" type="password" class="form-control" placeholder="Oassword" onkeyup="valTexto(this,4,12)">
+                <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
+            <?php 
+                } 
+                ?>
             <div class="col-md-9 text-right">
                 <button class="btn btn-secondary mt-4" onclick="editarPerfil()">Editar</button>
             </div>
