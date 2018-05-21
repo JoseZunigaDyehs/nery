@@ -44,9 +44,9 @@ class control {
         $query->execute();
 		$query = null;
 		}
-	public function insertarAlumno($nombre, $apellido, $sexo) {
+	public function insertarCliente($rutCliente, $nombre, $apellido, $email, ) {
 
-        $string = "insert into persona values (0,'$nombre', '$apellido',  $sexo);"; 
+        $string = "insert into cliente values ('$rutCliente','$nombre', '$apellido', '$email', '$telefono');"; 
 //echo 	$string;	
         $query = $this->_getConnection()->prepare($string);
         $query->execute();

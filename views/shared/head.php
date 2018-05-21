@@ -44,6 +44,6 @@
                 </li>
 
             </ul>
-            <a class="nav-link" href="#">Logout</a>
+            <a class="nav-link" href="?id=99">Logout</a>
         </div>
     </nav>

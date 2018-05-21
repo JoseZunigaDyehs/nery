@@ -37,7 +37,7 @@ class MainController {
 							$this->_view->render("frm_agregaAlumno");	
 							break;
 						case 6:	
-							$this->_agregarAlumno();	
+							$this->_agregarCliente();	
 							break;
 						case 11:
 							$this->_cartera();
@@ -122,12 +122,14 @@ class MainController {
 		 
 	}
 
-	public function _agregarAlumno()	{
+	public function _agregarCliente()	{
 		 $control = new control();
-		 $nombre =  $_POST['name'];
-		 $apellido =  $_POST['lname'];
-		 $sexo =  $_POST['sex'];
-		 $respuesta = $control->insertarAlumno($nombre, $apellido,$sexo);
+		 $rut = $_POST['rut'];
+		 $nombre =  $_POST['nombres'];
+		 $apellido =  $_POST['apellidos'];
+		 $email =  $_POST['email'];
+		 $telefono = $_POST['telefono'];
+		 $respuesta = $control->insertarcliente($rut, $nombre, $apellido, $email, $telefono);
  
 	}
 

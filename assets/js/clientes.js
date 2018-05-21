@@ -1,3 +1,52 @@
+
+$(document).ready(function() { 
+
+    
+		$("#txtNombres").focus();
+		$("#txtApellidos").on('keyup',function(e){
+        if (e.keyCode == 13){
+            $("#btnAgregar").click();
+			//alert("Buscar");
+        }
+		});    
+		$("#btnAgregar").click(function(){
+      var rut = $("#txtRut").val();
+			var nombre = $("#txtNombres").val();
+			var apellido = $("#txtApellidos").val();
+      var email = $("#txtEmail").val();
+      var telefono = $("#txtTelefono").val();
+        fn_agregaCliente(rut,nombre,apellido,sexo,email,telefono);
+		/*alert($("#txtNombre").val());
+		alert($("#txtApellido").val());
+		alert($('input[name=sexo]:checked').val());*/
+		//alert($("#sexo").val());
+		//alert("buscar");
+    });
+
+
+    });   
+
+function fn_agregaCliente(rut, nombre, apellido, email, telefono)
+{
+	$.ajax({url:'index.php?id=6',type:'post',data: 'rut' + rut + '&nombres=' + nombre + '&apellidos=' + apellido + '&email=' + mail + '&telefono=' + telefono,
+        beforeSend: function () {
+            $("#loading-div-background").css({ opacity: .9 });
+            $("#loading-div-background").show();
+        },            
+        success:function(data){
+           $("#loading-div-background").hide();
+			jAlert("Registro Almacenado");
+			$("#txtNombre").val('');
+			$("#txtApellido").val('');
+           
+        }
+    });
+}
+
+
+
+
+
 function validarTodo(){
  var rut = document.getElementById('rut');
  var nombres = $('#nombres');
