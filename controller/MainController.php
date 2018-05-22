@@ -59,7 +59,7 @@ class MainController {
 							$this->_eliminarCliente();
 							break;
 						case 18:
-							$this->_eliminarCliente();
+							$this->_listarCheques();
 							break;
 						case 99:
 							$this->_cerrarSession();	
