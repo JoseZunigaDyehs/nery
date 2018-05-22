@@ -75,10 +75,10 @@ class control {
 		return $res;
 	}
 
-	public function modificarPerfil($nombre, $apellido, $nombreusuario, $password){
+	public function modificarPerfil( $nombreusuario, $password,$nombre, $apellido){
 		
 		
-		$string = "update usuario set nombre = '$nombre', apellido = '$apellido', nombreusuario = '$nombreusuario', password = '$password'  where nombreusuario='$nombreusuario';";
+		$string = "update usuario set nombreusuario = '$nombreusuario', password = '$password', nombre = '$nombre', apellido = '$apellido'  where nombreusuario='$nombreusuario';";
 		$query = $this->_getConnection()->prepare($string);
 		$query->execute();
 		$query = null;
