@@ -59,7 +59,7 @@ class MainController {
 							$this->_eliminarCliente();
 							break;
 						case 18:
-							$this->_eliminarCliente();
+							$this->_listarCheques();
 							break;
 						case 19:
 						    $this->_modificarPerfil();   
@@ -124,6 +124,7 @@ class MainController {
 		$control = new control();
 		$rut = $_POST['rutCliente'];
 		$respuesta = $control->eliminarCliente($rut);
+		return $respuesta;
  }
 	
 	/** FIN CLIENTES */
@@ -199,8 +200,8 @@ class MainController {
 	public function _listarCheques(){
 		$control = new control();
 		$rut = $_POST['rutCliente'];
-		$respuesta = $control->_listarCheques($rut);
-
+		$this->_view->setParam("cheques", $control->listarCheques($rut));
+		$this->_view->renderPartial("cartera/_cheques");	
 	}
     
     
