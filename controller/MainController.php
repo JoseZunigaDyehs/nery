@@ -61,6 +61,9 @@ class MainController {
 						case 18:
 							$this->_listarCheques();
 							break;
+						case 19:
+						    $this->_modificarPerfil();   
+						    break;
 						case 99:
 							$this->_cerrarSession();	
 							break;	
@@ -165,6 +168,18 @@ class MainController {
 		$this->_view->setParam("usuario", $control->mostrarPerfil($mail));
 		$this->_view->render("perfil/perfil");	
 	}
+
+	public function _modificarPerfil(){
+		$control = new control();
+		$nombreusuario = $_POST['nombreusuario'];
+		$password = $_POST['password'];
+		$nombre = $_POST['nombre'];
+		$apellido = $_POST['apellido'];
+		$respuesta = $control-> modificarPerfil($nombre, $apellido, $nombreusuario, $password);
+	}
+
+
+
 	public function _cartera() {
 		$this->_view->render("cartera/cartera");	
 	}

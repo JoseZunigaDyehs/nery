@@ -35,7 +35,7 @@
             
             <div class="form-group col-md-3">
                 <label class="w-100">Contreña:
-                <input id="apellidos" type="password" class="form-control" placeholder="password" onkeyup="valTexto(this,4,50)"  value="<?php echo $row["password"] ?>">
+                <input id="password" type="password" class="form-control" placeholder="password" onkeyup="valTexto(this,4,50)"  value="<?php echo $row["password"] ?>">
                 <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
