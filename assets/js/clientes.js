@@ -128,7 +128,6 @@ function fn_eliminarCliente(e, tabla) {
   $.ajax({
     url: 'index.php?id=17',
     type: 'post',
-    async: false,
     data: 'rutCliente=' + rut,
     success: function (data) {
       $(e).closest('tr').remove();

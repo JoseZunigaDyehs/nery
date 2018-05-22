@@ -40,9 +40,10 @@ class control {
 
 	public function eliminarCliente($rutCliente) {
 
-        $string = "delete from cliente where rutcliente=$rutCliente;"; 		
+        $string = "delete from cliente where rutcliente='$rutCliente';"; 		
         $query = $this->_getConnection()->prepare($string);
-        $query->execute();
+		$query->execute();
+		return $query;
 		$query = null;
 	}
 

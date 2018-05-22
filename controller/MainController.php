@@ -124,6 +124,7 @@ class MainController {
 		$control = new control();
 		$rut = $_POST['rutCliente'];
 		$respuesta = $control->eliminarCliente($rut);
+		return $respuesta;
  }
 	
 	/** FIN CLIENTES */
