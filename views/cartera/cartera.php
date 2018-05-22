@@ -27,35 +27,11 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">N° Doc</th>
-                            <th scope="col">Fecha protesto</th>
-                            <th scope="col">Motivo</th>
                             <th scope="col">Deuda</th>
                             <th scope="col">Selección</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>
-                                <p class="numero">454545</p>
-                            </td>
-                            <td>
-                                <p class="fecha">29-03-2018</p>
-                            </td>
-                            <td>
-                                <p class="motivo">No quiere nada</p>
-                            </td>
-                            <td>
-                                <p class="deuda">155.652</p>
-                            </td>
-                            <td class="d-flex justify-content-center">
-                                <div class="custom-control custom-checkbox seleccionado" onchange="generarCalculos(this)">
-                                    <input type="checkbox" class="custom-control-input" id="2" />
-                                    <label class="custom-control-label" for="2"></label>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

@@ -40,9 +40,10 @@ class control {
 
 	public function eliminarCliente($rutCliente) {
 
-        $string = "delete from cliente where rutcliente=$rutCliente;"; 		
+        $string = "delete from cliente where rutcliente='$rutCliente';"; 		
         $query = $this->_getConnection()->prepare($string);
-        $query->execute();
+		$query->execute();
+		return $query;
 		$query = null;
 	}
 
@@ -55,13 +56,14 @@ class control {
 	}
 
 	public function listarCheques($rutCliente){
-		$string = "select * from cheque where rutcliente = $rutCliente;";
+		$string = "select * from cheque where rutcliente='$rutCliente';";
         $query = $this->_getConnection()->prepare($string);
         $query->execute();
 		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		echo json_encode($query);
 		$query = null;
+		echo json_encode($res);
 		return $res;
-
 	}
 	/** FIN CLIENTES*/
 
@@ -75,7 +77,18 @@ class control {
 		return $res;
 	}
 
-	
+	public function modificarPerfil($nombre, $apellido, $nombreusuario, $password){
+		
+		
+		$string = "update usuario set nombre = '$nombre', apellido = '$apellido', nombreusuario = '$nombreusuario', password = '$password'  where nombreusuario='$nombreusuario';";
+		$query = $this->_getConnection()->prepare($string);
+		$query->execute();
+		$query = null;
+	}
+
+
+
+		
 	/**FIN PERFIL */
 		
 }

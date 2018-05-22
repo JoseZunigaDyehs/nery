@@ -9,6 +9,9 @@ class view {
       include("views/$viewName.php");
       include("views/shared/foot.php");
     }
+    public function renderPartial($viewName) {
+        include("views/$viewName.php");
+      }
 
 
     public function getParam($nombre) {

@@ -1,5 +1,4 @@
 function buscarPorRut(e) {
-
   var rut = $('#rut').val();
 
   //método que trae y pinta cheques de clientes
@@ -9,22 +8,12 @@ function buscarPorRut(e) {
     data: 'rutCliente=' + rut,
     success: function (data) {
       //No se cómo trae las filas
-      var tablaBody = $('#cliente').find('tbody');
-      var str = '';
-      str += '<td><p class="numero">251325</p></td>';
-      str += '<td><p class="fecha">22-05-2018</p></td>';
-      str += '<td><p class="motivo">No pago algo</p></td>';
-      str += '<td><p class="deuda">1.232.152</p></td>';
-      str += '<td class="d-flex justify-content-center">';
-      str += '<div class="custom-control custom-checkbox seleccionado" onchange="generarCalculos(this)">';
-      str += '<input type="checkbox" class="custom-control-input" id="1" />';
-      str += '<label class="custom-control-label" for="1"></label></div>';
-      str += '</td></tr>';
-      tablaBody.html(str);
+      var tablaBody = $('#cheques').find('tbody');
+      tablaBody.html(data);
+      $('#cheques').removeClass('d-none');
     }
   });
 
-  $('#cheques').removeClass('d-none');
 }
 
 function generarCalculos(e) {
