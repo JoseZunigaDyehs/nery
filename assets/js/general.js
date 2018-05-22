@@ -255,11 +255,6 @@ function agregar() {
   }
 }
 
-
-function editarPerfil(){
-  function fn_editarPerfil(usuario, editores); 
-}
-
 //Muestra tabla si tiene mas de una fila, se le pasa la tabla, y un valor si es producto
 function mostrarTabla(tabla, producto) {
   var filas = tabla.find('tbody tr');
