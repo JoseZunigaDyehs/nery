@@ -88,6 +88,7 @@ function fn_agregaCliente(clientes) {
       fila += '</tr>';
 
       tabla.find('tbody').append(fila);
+      mostrarTabla(tabla);//Muestra tabla si tiene filas
       refreshFunction();
       alert('Se ha agregado el cliente');
 
@@ -137,3 +138,7 @@ function fn_eliminarCliente(e, tabla) {
     }
   });
 }
+
+$(document).ready(()=>{
+  mostrarTabla($('#tablaClientes'));
+});
