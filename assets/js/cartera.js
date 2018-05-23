@@ -82,7 +82,7 @@ function fillTablaCheques(e) {
 }
 
 function calculosTablaDeuda(cheques){
-  debugger;
+  
   var valores = {};
   var sumaDeuda = 0;
   var sumaInteres = 0;
@@ -108,7 +108,7 @@ function quitarFormatoPesos(valor) {
 }
 
 function pagarCheques(){
-  debugger;
+
   var tabla = $('#tablaDeuda');
   var filas = tabla.find('tbody tr');
   var cheques = [];

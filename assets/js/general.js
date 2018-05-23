@@ -117,7 +117,7 @@ function valEmail(e) {
 
 //Valida el Rut
 function checkRut(rut) {
-  //debugger;
+  //
   // Despejar Puntos
   var valor = rut.value.replace('.', '');
   // Despejar Guión

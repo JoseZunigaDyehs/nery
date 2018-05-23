@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 
 function editarPerfil(usuario) {
-debugger;
+
     $.ajax({
       url: 'index.php?id=19',
       type: 'post',
