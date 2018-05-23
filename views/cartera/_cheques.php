@@ -12,7 +12,7 @@
               <p class="deuda"><?php echo $row["monto"]?></p>
           </td>
           <td class="d-flex justify-content-center">
-              <div class="custom-control custom-checkbox seleccionado" onchange="generarCalculos(this)">
+              <div class="custom-control custom-checkbox seleccionado" onchange="fillTablaCheques(this)">
                   <input type="checkbox" class="custom-control-input" id="<?php echo $contador?>" />
                   <label class="custom-control-label" for="<?php echo $contador?>"></label>
               </div>

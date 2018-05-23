@@ -7,16 +7,34 @@ function buscarPorRut(e) {
     type: 'post',
     data: 'rutCliente=' + rut,
     success: function (data) {
-      //No se cómo trae las filas
-      var tablaBody = $('#cheques').find('tbody');
-      tablaBody.html(data);
-      $('#cheques').removeClass('d-none');
+      if(data.trim()!==""){
+        var tablaBody = $('#cheques').find('tbody');
+        tablaBody.html(data);
+        $('#cheques').removeClass('d-none');
+        var deudas = tablaBody.find('.deuda');
+        $.each(deudas,function(i,val){
+          $(val).text(formatNumber($(val).text()));
+        });
+
+        $.ajax({
+          url: 'index.php?id=20',
+          type: 'post',
+          data: 'rutCliente=' + rut,
+          success: function (data) {
+            var cliente = JSON.parse(data);
+            $('#nombreCliente').text(cliente.nombres+' '+cliente.apellidos);
+          }
+        });
+
+      }else{
+        alert('No existen cheques para mostrar');
+      }
     }
   });
 
 }
 
-function generarCalculos(e) {
+function fillTablaCheques(e) {
   var tabla = $(e).closest('tbody');
   var filas = tabla.find('tr');
   var cheques = [];
@@ -44,14 +62,14 @@ function generarCalculos(e) {
     $('#deuda').addClass('d-none');
     var str = '';
     $.each(cheques, function (i, cheque) {
+      var deudaSinFormato = quitarFormatoPesos(cheque.deuda);
       str += '<tr><th scope="row ">' + (i + 1) + '</th>';
-      str += '<td><p>N° Doc: ' + cheque.cheque.numeroDoc + '</p>';
+      str += '<td><p class="numero" data-numero="'+cheque.cheque.numeroDoc+'">N° Doc: ' + cheque.cheque.numeroDoc + '</p>';
       str += '<p>Fecha protesto: ' + cheque.cheque.fecha + '</p>';
       str += '<p>Motivo: ' + cheque.cheque.motivo + '</p></td>';
       str += '<td><p class="deuda">' + cheque.deuda + '</p></td>';
-      str += '<td><p>35.000</p></td>';
-      str += '<td><p>100.000</p></td>';
-      str += '<td><p>348.513</p></td></tr>';
+      str += '<td><p>' + formatNumber((deudaSinFormato*0.1).toFixed(0)) + '</p></td>';
+      str += '<td><p>' + formatNumber((deudaSinFormato*1.1).toFixed(0)) + '</p></td></tr>';
     });
     $('#deuda').find('#tablaDeuda tbody').html(str);
     $('#deuda').removeClass('d-none');
@@ -67,16 +85,50 @@ function calculosTablaDeuda(cheques){
   debugger;
   var valores = {};
   var sumaDeuda = 0;
+  var sumaInteres = 0;
+  var sumaTotal = 0;
   $.each(cheques,function(i,cheque){
     var deuda = quitarFormatoPesos(cheque.deuda);
     sumaDeuda += deuda;
+    sumaInteres += parseInt((deuda*0.1).toFixed(0));
+    sumaTotal += parseInt((deuda*1.1).toFixed(0));
   });
   var tablaFoot = $('#deuda').find('#tablaDeuda tfoot tr');
   sumaDeuda = formatNumber(sumaDeuda);
+  sumaInteres = formatNumber(sumaInteres);
+  sumaTotal = formatNumber(sumaTotal);
   tablaFoot.find('.deuda').text(sumaDeuda);
+  tablaFoot.find('.interes').text(sumaInteres);
+  tablaFoot.find('.total').text(sumaTotal);
 }
 
 function quitarFormatoPesos(valor) {
   valor = valor.replace(/\./g,'');
   return parseInt(valor);
+}
+
+function pagarCheques(){
+  debugger;
+  var tabla = $('#tablaDeuda');
+  var filas = tabla.find('tbody tr');
+  var cheques = [];
+  $.each(filas,function(i,val){
+    var cheque = $(val).find('.numero')[0].dataset.numero;
+
+    $.ajax({
+      url: 'index.php?id=21',
+      type: 'post',
+      data: 'numDocumento=' + cheque,
+      success: function (data) {
+        $(val).remove();
+        mostrarTabla(tabla);
+        if((filas.length-1)===i){
+          $('#deuda').addClass('d-none');
+          alert('Se pagaron los cheques');
+        }
+      }
+    });
+
+
+  });
 }

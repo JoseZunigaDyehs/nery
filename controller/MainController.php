@@ -63,6 +63,12 @@ class MainController {
 							break;
 						case 19:
 						    $this->_modificarPerfil();   
+								break;
+						case 20:
+						    $this->_getCliente();   
+								break;
+						case 21:
+						    $this->_pagarCheque();
 						    break;
 						case 99:
 							$this->_cerrarSession();	
@@ -103,6 +109,7 @@ class MainController {
 		$this->_view->setParam("datos", $control->listarPersonas($likeNombre));	
     $this->_view->render("frm_listado");
 	}
+
 	public function _eliminarPersona($idPersona)	{
 		$control = new control();
 		$control->eliminarPersona($idPersona);
@@ -119,6 +126,13 @@ class MainController {
 		 $telefono = $_POST['telefono'];
 		 $respuesta = $control->insertarCliente($rut, $nombre, $apellido, $email, $telefono);
 	}
+
+	public function _getCliente()	{
+		$control = new control();
+		$rut = $_POST['rutCliente'];
+		$respuesta = $control->getCliente($rut);
+		echo json_encode($respuesta[0]);
+ }
 
 	public function _eliminarCliente()	{
 		$control = new control();
@@ -179,19 +193,20 @@ class MainController {
 		$respuesta = $control-> modificarPerfil($nombre, $apellido, $nombreusuario, $password);
 	}
 
-
-
 	public function _cartera() {
 		$this->_view->render("cartera/cartera");	
 	}
+
 	public function _clientes() {
 		$control = new control();
 		$this->_view->setParam("clientes", $control->listarClientes());
 		$this->_view->render("clientes/clientes");	
 	}
+
 	public function _login() {
 		$this->_view->render("login/login");	
 	}
+
 	public function _estadisticas(){
 		$this->_view->render("estadisticas/estadistica");	
 	}
@@ -201,8 +216,15 @@ class MainController {
 		$control = new control();
 		$rut = $_POST['rutCliente'];
 		$this->_view->setParam("cheques", $control->listarCheques($rut));
-		$this->_view->renderPartial("cartera/_cheques");	
+		$this->_view->renderPartial("cartera/_cheques");
 	}
-    
+	
+	public function _pagarCheque() {
+		$control = new control();
+		$id = $_POST["numDocumento"];
+		$respuesta = $control->pagarCheque($id);
+		echo $respuesta;
+		return $respuesta;
+	}
     
 }

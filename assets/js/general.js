@@ -305,6 +305,5 @@ function formatNumber(num) {
 //DOCUMENT READY
 $('document').ready(function () {
   //Mostrar o no las tablas si es que tienen filas
-  mostrarTabla($('#productosContainer'), true);
   mostrarTabla($('#tablaOP'));
 });

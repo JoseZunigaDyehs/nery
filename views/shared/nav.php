@@ -14,9 +14,6 @@
                     <a class="nav-link" href="?id=13">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?id=14">Login</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="?id=11">Cartera</a>
                 </li>
                 <li class="nav-item">

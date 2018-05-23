@@ -10,7 +10,6 @@ class control {
 	public function validarLogin($login, $password) {
 
         $string = "select count(*) from usuario where nombreusuario='".$login."' and password='".$password."';"; 		
-		//echo $string;
         $query = $this->_getConnection()->prepare($string);
         $query->execute();
 		$res = $query->fetchColumn();
@@ -55,14 +54,12 @@ class control {
 		$query = null;
 	}
 
-	public function listarCheques($rutCliente){
-		$string = "select * from cheque where rutcliente='$rutCliente';";
+	public function getCliente($rutCliente) {
+        $string = "select * from cliente where rutcliente='$rutCliente'"; 		
         $query = $this->_getConnection()->prepare($string);
         $query->execute();
 		$res = $query->fetchAll(PDO::FETCH_ASSOC);
-		echo json_encode($query);
 		$query = null;
-		echo json_encode($res);
 		return $res;
 	}
 	/** FIN CLIENTES*/
@@ -78,17 +75,36 @@ class control {
 	}
 
 	public function modificarPerfil( $nombreusuario, $password,$nombre, $apellido){
-		
-		
+
 		$string = "update usuario set nombreusuario = '$nombreusuario', password = '$password', nombre = '$nombre', apellido = '$apellido'  where nombreusuario='$nombreusuario';";
 		$query = $this->_getConnection()->prepare($string);
 		$query->execute();
 		$query = null;
 	}
-
-
-
-		
 	/**FIN PERFIL */
+
+	/**CARTERA */
+
+	public function listarCheques($rutCliente){
+		$string = "select * from cheque where rutcliente='$rutCliente' and idestado=1;";
+        $query = $this->_getConnection()->prepare($string);
+        $query->execute();
+		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		$query = null;
+		return $res;
+	}
+
+	public function pagarCheque($id){
+
+		$string = "update cheque set idestado = '2' where codigo='$id';";
+		$query = $this->_getConnection()->prepare($string);
+		$query->execute();
+		$res = $query;
+		$query = null;
+		return $res;
+	}
+
+	/**FIN CARTERA */
+
 		
 }

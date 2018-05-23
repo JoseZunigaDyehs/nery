@@ -20,7 +20,7 @@
         <div class="row mb-5 d-none" id="cheques">
             <div class="d-flex justify-content-between col-md-12">
                 <h6>Cheques</h6>
-                <h6>Pablo Alejandro Pérez Dararola</h6>
+                <h6 id="nombreCliente">Pablo Alejandro Pérez Dararola</h6>
             </div>
             <div class="sec-pri p-3 w-100">
                 <table class="table" id="tablaClientes">
@@ -47,8 +47,7 @@
                             <th scope="col ">#</th>
                             <th scope="col ">Cheque</th>
                             <th scope="col ">Capital</th>
-                            <th scope="col ">Interés</th>
-                            <th scope="col ">Honorario</th>
+                            <th scope="col ">Interés (10%)</th>
                             <th scope="col ">Total</th>
                         </tr>
                     </thead>
@@ -102,20 +101,17 @@
                                 <p class="deuda">213.513</p>
                             </td>
                             <td>
-                                <p>35.000</p>
+                                <p class="interes">35.000</p>
                             </td>
                             <td>
-                                <p>100.000</p>
-                            </td>
-                            <td>
-                                <p>348.513</p>
+                                <p class="total">348.513</p>
                             </td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
             <div class="col-md-3 ">
-                <div class="sec-pri p-3 mb-4 b-shadow">
+                <!-- <div class="sec-pri p-3 mb-4 b-shadow">
                     <div class="d-flex ">
                         <h5>Total: $</h5>
                         <h5>545.546</h5>
@@ -128,9 +124,9 @@
                         <h5>Por Cheque: $</h5>
                         <h5>253.546</h5>
                     </div>
-                </div>
+                </div> -->
                 <div class="w-100 d-flex justify-content-end ">
-                    <button class="btn btn-primary " onclick="generarCalculos() ">Finalizar</button>
+                    <button class="btn btn-primary " onclick="pagarCheques() ">Pagar</button>
                 </div>
             </div>
 
