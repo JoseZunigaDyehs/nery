@@ -104,6 +104,26 @@ class control {
 		return $res;
 	}
 
+	public function crearCheque($monto,$rutCliente,$numero) {
+		
+		$string = "insert into cheque values ('$numero','$monto', '1', '$rutCliente');"; 
+		$query = $this->_getConnection()->prepare($string);
+		$query->execute();
+		$res = $query;
+		$query = null;
+		return $res;
+
+	}
+
+	public function historial() {
+		$string = "select * from cheque where idestado='2'";
+		$query = $this->_getConnection()->prepare($string);
+		$query->execute();
+		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		$query = null;
+		return $res;
+	}
+
 	/**FIN CARTERA */
 
 		

@@ -52,9 +52,6 @@ class MainController {
 						case 14:
 							$this->_login();
 							break;
-						case 15:
-							$this->_estadisticas();
-							break;
 						case 17:
 							$this->_eliminarCliente();
 							break;
@@ -69,10 +66,22 @@ class MainController {
 								break;
 						case 21:
 						    $this->_pagarCheque();
+								break;
+						case 22:
+						    $this->_cheques();
+								break;
+						case 23:
+						    $this->_crearCheque();
+								break;
+						case 24:
+						    $this->_historial();
 						    break;
 						case 99:
 							$this->_cerrarSession();	
-							break;	
+							break;
+						default:
+							$this->_view->render("shared/404");	
+							break;
 					}
 				}
 			}
@@ -207,8 +216,8 @@ class MainController {
 		$this->_view->render("login/login");	
 	}
 
-	public function _estadisticas(){
-		$this->_view->render("estadisticas/estadistica");	
+	public function _cheques() {
+		$this->_view->render("cheques/cheques");	
 	}
 
 	/**CARTERA */
@@ -225,6 +234,21 @@ class MainController {
 		$respuesta = $control->pagarCheque($id);
 		echo $respuesta;
 		return $respuesta;
+	}
+
+	public function _crearCheque() {
+		$control = new control();
+		$rutCliente = $_POST["rutCliente"];
+		$monto = $_POST["monto"];
+		$numero = $_POST["numero"];
+		$respuesta = $control->crearCheque($monto,$rutCliente,$numero);
+		return $respuesta;
+	}
+
+	public function _historial() {
+		$control = new control();
+		$this->_view->setParam("cheques", $control->historial());
+		$this->_view->render("historial/historial");	
 	}
     
 }

@@ -97,9 +97,6 @@
                             <a class="btn btn-secondary btnEditar mr-2  cursor-pointer" onclick="editar(this)" data-toggle="tooltip" data-placement="top" title="Editar cliente">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a class="btn btn-primary btnEditar cursor-pointer" onclick="editar(this)" data-toggle="tooltip" data-placement="top" title="Ir a cliente">
-                                <i class="fas fa-arrow-alt-circle-right"></i>
-                            </a>
                         </td>
                     </tr>
                 <?php 

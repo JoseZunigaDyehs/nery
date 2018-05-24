@@ -83,7 +83,6 @@ function fn_agregaCliente(clientes) {
       fila += '<a  class="btn btn-primary editar d-none cursor-pointer" onclick="guardar(this,' + "'clientes'" + ')" data-toggle="tooltip" data-placement="top" title="Guardar cliente"><i class="fas fa-check-circle"></i></a>';
       fila += '<a  class="btn btn-danger btnEliminar mr-2 cursor-pointer" onclick="eliminar(this,' + "'clientes'" + ')" data-toggle="tooltip" data-placement="top" title="Eliminar cliente"><i class="fas fa-trash-alt"></i></a>';
       fila += '<a  class="btn btn-secondary btnEditar mr-2 cursor-pointer" onclick="editar(this,' + "'clientes'" + ')" data-toggle="tooltip" data-placement="top" title="Editar cliente"><i class="fas fa-edit"></i></a>';
-      fila += '<a class="btn btn-primary btnEditar cursor-pointer" onclick="ir(this,' + "'clientes'" + ')" data-toggle="tooltip" data-placement="top" title="Ir a cliente"><i class="fas fa-arrow-alt-circle-right"></i></a>';
       fila += '</td>';
       fila += '</tr>';
 
