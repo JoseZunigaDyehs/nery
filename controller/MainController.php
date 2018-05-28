@@ -195,11 +195,12 @@ class MainController {
 
 	public function _modificarPerfil(){
 		$control = new control();
-		$nombreusuario = $_POST['email'];
+		$nombreusuario = $_POST['nombreUsuario'];
 		$password = $_POST['password'];
 		$nombre = $_POST['nombres'];
 		$apellido = $_POST['apellidos'];
-		$respuesta = $control-> modificarPerfil($nombreusuario, $password, $nombre, $apellido);
+		$id = $_POST['id'];
+		$respuesta = $control-> modificarPerfil($nombreusuario, $password, $nombre, $apellido,$id);
 	}
 
 	public function _cartera() {

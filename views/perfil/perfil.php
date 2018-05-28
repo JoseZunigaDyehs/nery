@@ -13,9 +13,10 @@
             </div>
             <?php 
             foreach($cliente as $row){?>
+            <span id="id" class="d-none"><?php echo $row["idusuario"] ?></span>
             <div class="form-group col-md-3">
-                <label class="w-100">Email:
-                    <input id="email" type="text" class="form-control" placeholder="Email cliente" value="<?php echo $row["nombreusuario"] ?>" >
+                <label class="w-100">Nombre Usuario:
+                    <input id="nombreUsuario" type="text" class="form-control" placeholder="Nombre usuario" value="<?php echo $row["nombreusuario"] ?>" onkeyup="valTexto(this,4,50)">
                     <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
@@ -44,9 +45,9 @@
             
                 } 
                 ?>
-            <div class="col-md-9 text-right">
+            <div class="col-md-12 text-right">
             
-                <button class="btn btn-secondary mt-4"  id="btnModificar" onclick="fn_editarPerfil()">Editar</button>
+                <button class="btn btn-secondary mt-4"  id="btnModificar">Editar</button>
             </div>
         </div>
     </main>
