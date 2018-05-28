@@ -7,7 +7,7 @@ function buscarPorRut(e) {
     type: 'post',
     data: 'rutCliente=' + rut,
     success: function (data) {
-      if(data.trim()!==""){
+      if (data.trim() !== "") {
         var tablaBody = $('#cheques').find('tbody');
         tablaBody.html(data);
         $('#cheques').removeClass('d-none');
@@ -18,12 +18,12 @@ function buscarPorRut(e) {
           data: 'rutCliente=' + rut,
           success: function (data) {
             var cliente = JSON.parse(data);
-            $('#nombreCliente').text(cliente.nombres+' '+cliente.apellidos);
+            $('#nombreCliente').text(cliente.nombres + ' ' + cliente.apellidos);
             $('#rutCliente').val(cliente.rutcliente);
           }
         });
 
-      }else{
+      } else {
         alert('No existen cheques para mostrar');
       }
     }
@@ -31,18 +31,38 @@ function buscarPorRut(e) {
 
 }
 
-function guardarCheque(){
-  var numero = $('#numero').val();
-  var monto = $('#monto').val();
+function guardarCheque() {
+  var numero = $('#numero');
+  var monto = $('#monto');
   var rut = $('#rut').val();
+  var valido = true;
 
-  $.ajax({
-    url: 'index.php?id=23',
-    type: 'post',
-    data: 'rutCliente=' + rut +'&numero=' + numero + '&monto=' + monto,
-    success: function (data) {
-      var cliente = JSON.parse(data);
-      $('#nombreCliente').text(cliente.nombres+' '+cliente.apellidos);
-    }
-  });
+  if (!valNumber(numero['0'], 1, 50)) {
+    valido = false;
+  }
+
+  if (!valNumber(monto['0'], 1, 50)) {
+    valido = false;
+  }
+
+  if (valido) {
+    $.ajax({
+      url: 'index.php?id=23',
+      type: 'post',
+      data: 'rutCliente=' + rut + '&numero=' + numero.val() + '&monto=' + monto.val(),
+      success: function (data) {
+        if (data === "") {
+          alert('Se ha guardado el cheque');
+          numero.val('');
+          monto.val('');
+        } else {
+          alert('No se ha guardado el cheque');
+        }
+      }
+    });
+  } else {
+    alert('Faltan datos para guardar el cheque');
+  }
+
+
 }

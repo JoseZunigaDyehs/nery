@@ -124,7 +124,9 @@ function pagarCheques(){
         mostrarTabla(tabla);
         if((filas.length-1)===i){
           $('#deuda').addClass('d-none');
+          $('#cheques').addClass('d-none');
           alert('Se pagaron los cheques');
+          $('#rut').val('');
         }
       }
     });

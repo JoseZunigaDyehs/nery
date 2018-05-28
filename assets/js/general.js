@@ -47,7 +47,12 @@ function valNumber(e, min, max) {
   var error = $(e).siblings('.error');
   var valido = true;
 
-  if (valor.trim() === "") {
+  if (valor === undefined) {
+    error.text('No debe estar vacío');
+    error.removeClass('d-none');
+    $(e).addClass('is-invalid');
+    valido = false;
+  }else if(valor.trim() === "") {
     error.text('No debe estar vacío');
     error.removeClass('d-none');
     $(e).addClass('is-invalid');
