@@ -46,7 +46,7 @@
                 ?>
             <div class="col-md-9 text-right">
             
-                <button class="btn btn-secondary mt-4" onclick="editarPerfil()">Editar</button>
+                <button class="btn btn-secondary mt-4"  id="btnModificar" onclick="fn_editarPerfil()">Editar</button>
             </div>
         </div>
     </main>
