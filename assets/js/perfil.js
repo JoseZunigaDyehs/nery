@@ -15,7 +15,7 @@ function editarPerfil() {
         $("#loading-div-background").show();
       },     
       success:function(data){
-           
+           debugger
         alert("Registro Modificado Exitosamente","mensaje");
         $("#loading-div-background").hide();
                     

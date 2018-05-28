@@ -74,13 +74,12 @@ class control {
 		return $res;
 	}
 
-	public function modificarPerfil( $nombreusuario, $password,$nombre, $apellido){
+	public function modificarPerfil( $email, $password,$nombre, $apellido){
 
-		$string = "update usuario set nombreusuario = '$nombreusuario', password = '$password', nombre = '$nombre', apellido = '$apellido'  where nombreusuario='$nombreusuario';";
+		$string = "update usuario set nombreusuario = '$email', password = '$password', nombre = '$nombre', apellido = '$apellido'  where nombreusuario='$email';";
 		$query = $this->_getConnection()->prepare($string);
 		$query->execute();
 		$query = null;
-		return $res;
 	}
 	/**FIN PERFIL */
 
