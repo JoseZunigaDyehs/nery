@@ -39,11 +39,13 @@
                 <label class="error text-danger d-none position-absolute"></label>
                 </label>
             </div>
-
+        
             <?php 
+            
                 } 
                 ?>
             <div class="col-md-9 text-right">
+            
                 <button class="btn btn-secondary mt-4" onclick="editarPerfil()">Editar</button>
             </div>
         </div>
