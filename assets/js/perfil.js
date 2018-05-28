@@ -1,16 +1,15 @@
 $(document).ready(function() { 
 
-    
-    
+
 });
 
 
-function editarPerfil(usuario) {
+function editarPerfil(usuarios) {
 
     $.ajax({
       url: 'index.php?id=19',
       type: 'post',
-      data:  '&idusuario=' +usuario.idusuario +'&nombreusuario=' + usuario.nombreusuario + '&password=' + usuario.password + '&nombre=' + usuario.nombre + '&apellido=' + usuario.apellido ,
+      data:  '&email=' +usuarios.email +'&password=' + usuarios.password +'&nombres=' + usuarios.nombre + '&apellidos=' + usuarios.apellido ,
       beforeSend: function () {
         $("#loading-div-background").css({ opacity: .9 });
         $("#loading-div-background").show();

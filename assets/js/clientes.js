@@ -94,7 +94,6 @@ function fn_agregaCliente(clientes) {
     }
   });
 }
-
 function fn_editarCliente(clientes, editores) {
 
   $.ajax({

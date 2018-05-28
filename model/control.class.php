@@ -80,6 +80,7 @@ class control {
 		$query = $this->_getConnection()->prepare($string);
 		$query->execute();
 		$query = null;
+		return $res;
 	}
 	/**FIN PERFIL */
 
